@@ -140,8 +140,8 @@ footer{background:#fcfcf9;border-top:1px solid var(--border-color);padding:60px 
 <a href="#" class="icon-btn"><i class="fa-regular fa-moon"></i></a>
 <a href="#" class="icon-btn"><i class="fa-solid fa-cart-shopping"></i></a>
 
-<!-- Auth Buttons -->
-<a href="javascript:void(0)" id="signinBtn" onclick="openAuthModal('signin')" style="text-decoration:none;font-size:14px;font-weight:600;color:var(--text-main);margin:0 6px;">Sign in</a>
+<!-- Auth Buttons (Sign In oo shaqaynaya) -->
+<a href="javascript:void(0)" id="signinBtn" onclick="openAuthModal('signin')" style="text-decoration:none;font-size:14px;font-weight:600;color:var(--text-main);margin:0 6px;cursor:pointer;">Sign in</a>
 <div id="userProfile" class="user-profile-btn" onclick="logoutUser()"><i class="fa-solid fa-user-circle" style="color:var(--primary-green);font-size:16px;"></i> <span id="userName">User</span> <i class="fa-solid fa-arrow-right-from-bracket" style="font-size:11px;color:var(--text-muted);"></i></div>
 
 <a href="https://wa.me/252619649887" class="btn-green">Start learning &rarr;</a>
@@ -149,7 +149,7 @@ footer{background:#fcfcf9;border-top:1px solid var(--border-color);padding:60px 
 </div>
 </header>
 
-<!-- Modal Sign In / Sign Up -->
+<!-- Modal Sign In / Sign Up Overlay -->
 <div class="auth-overlay" id="authOverlay">
   <div class="auth-card">
     <button class="close-auth" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -206,7 +206,7 @@ footer{background:#fcfcf9;border-top:1px solid var(--border-color);padding:60px 
 <div class="dashboard-preview">
 <span class="badge-streak">🔥 15,000+ STUDENTS LEARNING</span>
 <div class="dash-header"><span>anwar.com/dashboard</span><span>14-DAY STREAK</span></div>
-<p style="font-size:18px;font-weight:700;margin-bottom:15px;">Kuso dhawoow, <span id="dashUser">Bashiir</span>. <span style="font-weight:400;color:var(--primary-green);font-style:italic;">One lesson to go.</span></p>
+<p style="font-size:18px;font-weight:700;margin-bottom:15px;">Good evening, <span id="dashUser">Bashiir</span>. <span style="font-weight:400;color:var(--primary-green);font-style:italic;">One lesson to go.</span></p>
 <div class="dash-video-card"><div class="dash-video-content">
 <span style="background:rgba(255,255,255,.2);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;">COURSE</span>
 <h2 style="font-size:32px;margin:10px 0;">Arduino & Robotics: <span style="font-weight:300;">From Scratch to Smart Projects</span></h2>
@@ -351,7 +351,7 @@ footer{background:#fcfcf9;border-top:1px solid var(--border-color);padding:60px 
 </footer>
 
 <script>
-// Authentication Logic
+// Authentication JavaScript Logic
 function openAuthModal(type) {
     document.getElementById('authOverlay').classList.add('active');
     switchAuth(type);
@@ -402,11 +402,7 @@ function logoutUser() {
     }
 }
 
-// Run on page load
-window.onload = function() {
-    checkUserStatus();
-};
-
+// Interactive Copy Button Functionality
 function copyNum(num, btn) {
     navigator.clipboard.writeText(num);
     const orig = btn.innerHTML;
@@ -414,6 +410,12 @@ function copyNum(num, btn) {
     setTimeout(() => { btn.innerHTML = orig; }, 2000);
 }
 
+// On Page Load Check
+window.onload = function() {
+    checkUserStatus();
+};
+
+// Scroll effects
 window.addEventListener('scroll', () => {
     const toTop = document.getElementById('toTop');
     if (window.scrollY > 300) {
